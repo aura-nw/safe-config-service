@@ -16,13 +16,11 @@ services:
     depends_on:
       - web
   db:
-    image: postgres:13-alpine
+    image: postgres:14-alpine
     env_file:
       - .dev.env
     volumes:
       - ./data/db:/var/lib/postgresql/data
-    ports:
-      - "${POSTGRES_PORT:-5432}:5432"
   web:
     build: .
     tty: true
